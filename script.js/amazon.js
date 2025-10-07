@@ -1,31 +1,3 @@
-const product= [
-  {
-    Image : 'images/products/athletic-cotton-socks-6-pairs.jpg',
-    name : 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-    rating : {
-      star : 4.5,
-      count : 87
-    },
-    price : 1090,
-
-
-  },
-  {
-    Image : 'images/products/intermediate-composite-basketball.jpg',
-    name : 'Intermediate Size Basketball',
-    rating : {
-      star : 5.0,
-      count : 87
-    },
-    price : 1090,
-
-
-  }
-];
-
-// console.log('hlooo');
-console.log(product);
-
 let productHtml = '';
 
 product.forEach((purchase)=>{
@@ -33,7 +5,7 @@ product.forEach((purchase)=>{
       `<div class="product-container">
               <div class="product-image-container">
                 <img class="product-image"
-                  src=${purchase.Image}>
+                  src=${purchase.image}>
               </div>
 
               <div class="product-name limit-text-to-2-lines">
@@ -42,14 +14,14 @@ product.forEach((purchase)=>{
 
               <div class="product-rating-container">
                 <img class="product-rating-stars"
-                  src="images/ratings/rating-${purchase.rating.star * 10}.png">
+                  src="images/ratings/rating-${purchase.rating.stars * 10}.png">
                 <div class="product-rating-count link-primary">
                   ${purchase.rating.count}
                 </div>
               </div>
 
               <div class="product-price">
-              ₹ ${purchase.price}
+              ₹ ${((purchase.price)/10).toFixed(2)}
               </div>
 
               <div class="product-quantity-container">

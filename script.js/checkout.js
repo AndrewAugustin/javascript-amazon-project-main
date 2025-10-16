@@ -1,9 +1,9 @@
-  import { cart } from "../data/cart";
- import { product } from "../data/product";
+  import { cart } from '../data/cart.js';
+ import { product } from '../data/product.js';
 
- let checkoutHtml = '';
-  cart.forEach((cartitem)=>{
-    const productId = cartitem.productId;
+  let checkoutHtml = '';
+  cart.forEach((cartItem)=>{
+    const productId = cartItem.productId;
 
     let matchingProduct = '';
     product.forEach((prod)=>{
@@ -11,6 +11,7 @@
         matchingProduct = prod;
       }
     });
+    console.log(matchingProduct);
     
     checkoutHtml +=
     `<div class="cart-item-container">
@@ -31,7 +32,7 @@
                 </div>
                 <div class="product-quantity">
                   <span>
-                    Quantity: <span class="quantity-label">${cartitem.quantity}</span>
+                    Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                   </span>
                   <span class="update-quantity-link link-primary">
                     Update

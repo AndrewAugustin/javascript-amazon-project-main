@@ -62,7 +62,6 @@ function updateCartQuantity() {
           cartQuantity += cartitem.quantity;
         })
               document.querySelector('.cart-quantity').innerHTML = cartQuantity;
-                    console.log(cartQuantity);
       }
 
   document.querySelector('.product-js-grid').innerHTML = productHtml;
@@ -72,6 +71,5 @@ function updateCartQuantity() {
       const productId=  solve.dataset.productId;
       addToCart(productId,productName);
       updateCartQuantity();
-      console.log(cart);  
     });
   });

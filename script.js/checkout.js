@@ -1,6 +1,6 @@
-  import { cart } from '../data/cart.js';
+ import { cart } from '../data/cart.js';
  import { product } from '../data/product.js';
-
+ import { currencyConvertor } from "./utility.js";
   let checkoutHtml = '';
   cart.forEach((cartItem)=>{
     const productId = cartItem.productId;
@@ -28,7 +28,7 @@
                   ${matchingProduct.name}
                 </div>
                 <div class="product-price">
-                  ₹ ${(matchingProduct.price).toFixed(2)}
+                  ₹ ${currencyConvertor(matchingProduct.price)}
                 </div>
                 <div class="product-quantity">
                   <span>
@@ -50,7 +50,7 @@
                 <div class="delivery-option">
                   <input type="radio" checked
                     class="delivery-option-input"
-                    name="delivery-option-1">
+                    name="delivery-option-${matchingProduct.id}">
                   <div>
                     <div class="delivery-option-date">
                       Tuesday, June 21
@@ -63,7 +63,7 @@
                 <div class="delivery-option">
                   <input type="radio"
                     class="delivery-option-input"
-                    name="delivery-option-1">
+                    name="delivery-option-${matchingProduct.id}">
                   <div>
                     <div class="delivery-option-date">
                       Wednesday, June 15
@@ -76,7 +76,7 @@
                 <div class="delivery-option">
                   <input type="radio"
                     class="delivery-option-input"
-                    name="delivery-option-1">
+                    name="delivery-option-${matchingProduct.id}">
                   <div>
                     <div class="delivery-option-date">
                       Monday, June 13

@@ -1,5 +1,6 @@
 import { cart , addToCart} from '../data/cart.js';
 import { product } from '../data/product.js';
+import { currencyConvertor } from "./utility.js";
 let productHtml = '';
 
 product.forEach((purchase)=>{
@@ -23,7 +24,7 @@ product.forEach((purchase)=>{
               </div>
 
               <div class="product-price">
-              ₹ ${((purchase.price)/10).toFixed(2)}
+              ₹ ${currencyConvertor(purchase.price)}
               </div>
 
               <div class="product-quantity-container">

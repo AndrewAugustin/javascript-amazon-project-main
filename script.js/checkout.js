@@ -91,7 +91,6 @@
           </div>`;
   });
 
- // console.log(checkoutHtml);
   document.querySelector('.order-summary').innerHTML = checkoutHtml;
 
   document.querySelectorAll('.delete-quantity-link').forEach((link) => {
@@ -100,10 +99,6 @@
       removeFromCart(productID);  
 
       const container = document.querySelector(`.cart-item-container-${productID}`);
-      if (container) {
-        container.remove();
-      } else {
-        console.warn(`Container not found for product ID: ${productID}`);
-      }
+        container.remove(); 
   });
 });

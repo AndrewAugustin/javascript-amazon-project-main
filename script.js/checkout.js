@@ -14,7 +14,7 @@
     console.log(matchingProduct);
     
     checkoutHtml +=
-    `<div class="cart-item-container">
+    `<div class="cart-item-container-${matchingProduct.id} cart-item-container">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -98,5 +98,12 @@
     link.addEventListener('click', ()=>{
       const productID = link.dataset.productId;
       removeFromCart(productID);  
+
+      const container = document.querySelector(`.cart-item-container-${productID}`);
+      if (container) {
+        container.remove();
+      } else {
+        console.warn(`Container not found for product ID: ${productID}`);
+      }
   });
 });

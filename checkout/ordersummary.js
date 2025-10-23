@@ -1,30 +1,19 @@
  import { cart, removeFromCart, updateDeliveryOption } from '../../data/cart.js';
- import { product } from '../../data/product.js';
- import { currencyConvertor } from "../utility.js";
+ import { getProduct} from '../data/product.js';
+ import { currencyConvertor } from '../script.js/utility.js';
  import  dayjs  from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
- import { deliveryDetail } from '../../data/deliveryDetail.js';
+ import { deliveryDetail , getDelieryOption} from '../../data/deliveryDetail.js';
+ import { renderPaymentsummary } from './paymentsummry.js';
 
  export function renderCheckoutPage() {
 
   let checkoutHtml = '';
   cart.forEach((cartItem)=>{
     const productId = cartItem.productId;
-    let matchingProduct = '';
-    product.forEach((prod)=>{
-      if(prod.id === productId){
-        matchingProduct = prod;
-      }
-    });
+    const matchingProduct = getProduct(productId);
 
-    const deliveryOptionId = cartItem.deliveryId;
-    let deliveryOption ;
-    
-    deliveryDetail.forEach((delivery)=>{
-      if(delivery.id === parseInt(deliveryOptionId)){
-        deliveryOption = delivery;
-      } 
-    });
-
+    let deliveryOptionId = cartItem.deliveryId;
+    const deliveryOption = getDelieryOption(deliveryOptionId); 
     const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, 'day');
     const formattedDate = deliveryDate.format('dddd, MMMM D');
@@ -101,6 +90,7 @@
     });
     return deliveryHtml;
   }
+  
   document.querySelector('.order-summary').innerHTML = checkoutHtml;
   document.querySelectorAll('.delete-quantity-link').forEach((link) => {
       link.addEventListener('click', ()=>{
@@ -108,6 +98,7 @@
       removeFromCart(productID);  
       const container = document.querySelector(`.cart-item-container-${productID}`);
       container.remove(); 
+      renderPaymentsummary();
   });
 });
 
@@ -117,6 +108,7 @@ document.querySelectorAll('.js-delivery-option')
     const { productId, deliveryId } = option.dataset;
     updateDeliveryOption(productId, deliveryId);
     renderCheckoutPage();
+    renderPaymentsummary();
   });
 });
 

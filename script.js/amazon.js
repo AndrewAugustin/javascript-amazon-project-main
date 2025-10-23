@@ -54,16 +54,20 @@ product.forEach((purchase)=>{
                 Add to Cart
               </button>
             </div>`         
+            
 });
 
-function updateCartQuantity() {
+  function updateCartQuantity() {
         let cartQuantity = 0;
         cart.forEach((cartitem)=>
         {
           cartQuantity += cartitem.quantity;
         })
               document.querySelector('.cart-quantity').innerHTML = cartQuantity;
+
+                    console.log(cartQuantity);
       }
+    
 
   document.querySelector('.product-js-grid').innerHTML = productHtml;
   document.querySelectorAll('.ToAddCart').forEach((solve)=>{

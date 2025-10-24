@@ -37,6 +37,7 @@ import { currencyConvertor } from "../script.js/utility.js";
  extraInfoHtml() {
   return ``;
  }
+
 }
 
 class Clothing extends Product {
@@ -725,3 +726,5 @@ export const product = [
   }
   return new Product(productDetails)
 });
+
+

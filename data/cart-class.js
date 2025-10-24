@@ -1,15 +1,15 @@
 class Cart{
-  cartItems = undefined;
-  localStorageKey = undefined;
+  cartItems  ; // without # is public property
+   #localStorageKey  ; //private property
 
 
   constructor(localStorageKey) {
       this.localStorageKey = localStorageKey;
-      this.localStorage();
+      this.#localStorage();
     }
 
-  localStorage() {
-        this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+  #localStorage() {
+        this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
         if (!this.cartItems) {
           this.cartItems = [{
             productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",  
@@ -26,7 +26,7 @@ class Cart{
       }
 
       saveToLocalStg() {
-      localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+      localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
       }
 
       addToCart(productId,productName) {
@@ -78,6 +78,8 @@ class Cart{
 const cart =  new Cart('cart-oop');
 const businesscart = new Cart('cart-business'); 
 
+
+//cart.#localStorageKey = 'test-key'; // will give error as private property cannot be accessed outside the class
 
 console.log(cart);
 console.log(businesscart);

@@ -17,15 +17,15 @@ product.forEach((purchase)=>{
 
               <div class="product-rating-container">
                 <img class="product-rating-stars"
-                  src="images/ratings/rating-${purchase.rating.stars * 10}.png">
+                  src="${purchase.getstarUrl()}.png">
                 <div class="product-rating-count link-primary">
                   ${purchase.rating.count}
                 </div>
               </div>
 
               <div class="product-price">
-              ₹ ${currencyConvertor(purchase.price)}
-              </div>
+                ${purchase.getpriceInINR()}              
+                </div> 
 
               <div class="product-quantity-container">
                 <select>

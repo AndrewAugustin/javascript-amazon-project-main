@@ -32,7 +32,7 @@
                   ${matchingProduct.name}
                   </div>
                     <div class="product-price">
-                    ₹ ${currencyConvertor(matchingProduct.price)}
+                     ${matchingProduct.getpriceInINR()}
                     </div>
                       <div class="product-quantity">
                       <span>

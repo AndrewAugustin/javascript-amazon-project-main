@@ -1,3 +1,4 @@
+import { currencyConvertor } from "../script.js/utility.js";
  export function getProduct(productId) { 
     let matchingProduct = '';
         product.forEach((prod)=>{
@@ -9,7 +10,30 @@
         return matchingProduct;
  }
 
+ class Product {
+  id;
+  image;
+  name;
+  rating;
+  price;
+ 
 
+ constructor(productDetils) {
+  this.id = productDetils.id;
+  this.image = productDetils.image;
+  this.name =   productDetils.name;
+  this.rating = productDetils.rating;
+  this.price = productDetils.price;
+ }
+
+ getstarUrl() {
+  return `images/ratings/rating-${this.rating.stars * 10}`;
+}
+
+ getpriceInINR() {
+  return `₹ ${currencyConvertor(this.price)}`;
+ }
+}
 
 export const product = [
   {
@@ -670,4 +694,6 @@ export const product = [
       "mens"
     ]
   }
-];
+].map((prod) => {
+  return new Product(prod)
+});

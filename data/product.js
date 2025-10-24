@@ -33,6 +33,31 @@ import { currencyConvertor } from "../script.js/utility.js";
  getpriceInINR() {
   return `₹ ${currencyConvertor(this.price)}`;
  }
+
+ extraInfoHtml() {
+  return ``;
+ }
+}
+
+class Clothing extends Product {
+  sizeChartLink;
+  
+  constructor(productDetils) {
+    super(productDetils); // Call the parent class constructor
+    this.sizeChartLink = productDetils.sizeChartLink;
+  }
+
+
+
+  extraInfoHtml() {
+    return `
+    <div class="product-size-chart-container">
+      <a href="${this.sizeChartLink}" target="_blank" class="product-size-chart-link link-primary">
+        Size Chart
+      </a>
+    </div>
+    `;
+  }
 }
 
 export const product = [
@@ -694,6 +719,9 @@ export const product = [
       "mens"
     ]
   }
-].map((prod) => {
-  return new Product(prod)
+].map((productDetails) => {
+  if(productDetails.type === 'clothing'){
+    return new Clothing(productDetails);
+  }
+  return new Product(productDetails)
 });

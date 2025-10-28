@@ -13,17 +13,14 @@ export function renderPaymentsummary() {
 
     if (!product || !deliveryOption) return;
 
-    // ✅ Convert priceCents → Rupees
     totalAmount += (product.priceCents / 10) * cartItem.quantity;
     shippingAmount += deliveryOption.price * cartItem.quantity;
   });
 
-  // ✅ Proper math, keep as numbers
   const beforeTaxAmount = totalAmount + shippingAmount;
-  const taxAmount = Math.round(beforeTaxAmount * 0.18 * 100) / 100; // round to 2 decimals
+  const taxAmount = Math.round(beforeTaxAmount * 0.18 * 100) / 100; 
   const finalAmount = beforeTaxAmount + taxAmount;
 
-  // ✅ Format nicely
   const format = (amount) =>
     `₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 

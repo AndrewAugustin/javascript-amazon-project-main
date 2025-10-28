@@ -63,7 +63,6 @@ product.forEach((purchase)=>{
                 Add to Cart
               </button>
             </div>`         
-           // console.log(getpriceInINR);
             
 });
 

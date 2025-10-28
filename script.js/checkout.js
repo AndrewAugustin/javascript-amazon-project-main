@@ -1,18 +1,26 @@
 import {renderCheckoutPage} from '../checkout/ordersummary.js';
 import { renderPaymentsummary } from '../checkout/paymentsummry.js';  
-import { loadProducts, loadProductsFetch} from '../data/product.js';
+import { loadProductsFetch} from '../data/product.js';
 import { loadCart } from '../data/cart.js';
 
 
 
 async function loadPage(){
 
-  await loadProductsFetch();
-  await new Promise((resolve)=>{
-    loadCart(()=>{      
-      resolve();
+  try {
+
+     // throw 'error';
+      await loadProductsFetch();
+      await new Promise((resolve)=>{
+      loadCart(()=>{      
+        resolve();
+      });
     });
-  });
+  } catch (error) {
+    console.log('Unexpected Error, Pleaaase try again later')
+  }
+
+  
 
   renderCheckoutPage();
   renderPaymentsummary();
@@ -20,7 +28,7 @@ async function loadPage(){
 
 }
 
-loadPage();
+loadPage(); 
 
 
 

@@ -56,14 +56,9 @@ export function loadCart(fun) {
     const xhr = new XMLHttpRequest();
 
 
-    xhr.addEventListener('load', ()=> {
-    
-  console.log(xhr.response);
-  
-  fun();
-
-    
-  });
+    xhr.addEventListener('load', ()=> {  
+      fun();
+    });
   xhr.open('GET', 'http://supersimplebackend.dev/cart', true);
   xhr.send();
 }

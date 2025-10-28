@@ -4,7 +4,7 @@
  import  dayjs  from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
  import { deliveryDetail , getDeliveryOption} from '../../data/deliveryDetail.js';
  import { renderPaymentsummary } from './paymentsummry.js';
- import { loadProducts } from '../data/product.js';
+ import { loadProducts, loadProductsFetch } from '../data/product.js';
 
 //  beforeall((done)=>{
 //   loadProducts(()=>{
@@ -13,6 +13,8 @@
 
 //  });
   // loadProducts();
+
+  loadProductsFetch();
 
  export function renderCheckoutPage() {
 

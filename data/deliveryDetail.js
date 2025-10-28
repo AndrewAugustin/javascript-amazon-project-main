@@ -14,7 +14,7 @@ export const deliveryDetail = [{
   price : 600
 }];
 
-export function getDelieryOption(deliveryOptionId) {
+export function getDeliveryOption(deliveryOptionId) {
   let deliveryOption = '';
       deliveryDetail.forEach((delivery)=>{
         if(delivery.id === parseInt(deliveryOptionId)){

@@ -1,6 +1,13 @@
 import { cart , addToCart} from '../data/cart.js';
-import { product } from '../data/product.js';
-import { currencyConvertor } from "./utility.js";
+import { product , loadProducts} from '../data/product.js';
+
+
+
+
+loadProducts(renderProductsGrid);
+
+function renderProductsGrid() {
+
 let productHtml = '';
 
 product.forEach((purchase)=>{
@@ -56,6 +63,7 @@ product.forEach((purchase)=>{
                 Add to Cart
               </button>
             </div>`         
+           // console.log(getpriceInINR);
             
 });
 
@@ -80,3 +88,4 @@ product.forEach((purchase)=>{
       updateCartQuantity();
     });
   });
+}

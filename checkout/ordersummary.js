@@ -2,7 +2,7 @@
  import { getProduct} from '../data/product.js';
  import { currencyConvertor } from '../script.js/utility.js';
  import  dayjs  from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
- import { deliveryDetail , getDelieryOption} from '../../data/deliveryDetail.js';
+ import { deliveryDetail , getDeliveryOption} from '../../data/deliveryDetail.js';
  import { renderPaymentsummary } from './paymentsummry.js';
 
  export function renderCheckoutPage() {
@@ -13,7 +13,7 @@
     const matchingProduct = getProduct(productId);
 
     let deliveryOptionId = cartItem.deliveryId;
-    const deliveryOption = getDelieryOption(deliveryOptionId); 
+    const deliveryOption = getDeliveryOption(deliveryOptionId); 
     const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, 'day');
     const formattedDate = deliveryDate.format('dddd, MMMM D');

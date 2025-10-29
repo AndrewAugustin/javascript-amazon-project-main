@@ -265,6 +265,26 @@
 .order-product-details {
   font-size: 14px;
 }
+.order-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
 
+.track-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}

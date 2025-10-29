@@ -79,7 +79,6 @@ const cart =  new Cart('cart-oop');
 const businesscart = new Cart('cart-business'); 
 
 
-//cart.#localStorageKey = 'test-key'; // will give error as private property cannot be accessed outside the class
 
 console.log(cart);
 console.log(businesscart);

@@ -6,13 +6,6 @@
  import { renderPaymentsummary } from './paymentsummry.js';
  import { loadProductsFetch } from '../data/product.js';
 
-//  beforeall((done)=>{
-//   loadProducts(()=>{
-//     done();
-//   });
-
-//  });
-  // loadProducts();
 
   loadProductsFetch();
 

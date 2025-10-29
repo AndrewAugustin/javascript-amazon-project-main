@@ -1,9 +1,6 @@
 import { cart , addToCart} from '../data/cart.js';
 import { product , loadProducts} from '../data/product.js';
 
-
-
-
 loadProducts(renderProductsGrid);
 
 function renderProductsGrid() {

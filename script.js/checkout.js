@@ -3,13 +3,9 @@ import { renderPaymentsummary } from '../checkout/paymentsummry.js';
 import { loadProductsFetch} from '../data/product.js';
 import { loadCart } from '../data/cart.js';
 
-
-
 async function loadPage(){
 
   try {
-
-     // throw 'error';
       await loadProductsFetch();
       await new Promise((resolve)=>{
       loadCart(()=>{      
@@ -19,15 +15,9 @@ async function loadPage(){
   } catch (error) {
     console.log('Unexpected Error, Pleaaase try again later')
   }
-
-  
-
   renderCheckoutPage();
   renderPaymentsummary();
-
-
 }
-
 loadPage(); 
 
 

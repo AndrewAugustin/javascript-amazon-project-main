@@ -63,11 +63,12 @@ export function renderPaymentsummary() {
 
         const backendOrder = await response.json();
 
-        // ✅ Create a full local order with product info
+
+        
         const localOrder = {
           id: backendOrder.id || crypto.randomUUID(),
           orderTime: new Date().toISOString(),
-          totalCostCents: Math.round(finalAmount * 100),
+          totalCostCents: Math.round(finalAmount * 10),
           products: cart.map((cartItem) => {
             const product = getProduct(cartItem.productId);
             const delivery = getDeliveryOption(cartItem.deliveryId);
